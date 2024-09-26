@@ -18,21 +18,26 @@ import {ref} from "vue";
 const newMessage = ref('');
 const messages = ref([]);
 
-function Message(user, text) {
-  this.user = user;
+enum Sender {
+  USER,
+  MORGANA
+}
+
+function Message(Sender, text) {
+  this.Sender = Sender;
   this.text = text;
 }
 
 function getMessages() {
   //call api
   if (messages.value.length === 0) {
-    messages.value.push(new Message("Morgana", "Hello, how can I help you?"));
+    messages.value.push(new Message(Sender.MORGANA, "Hello, how can I help you?"));
   }
 }
 
 function sendMessage() {
   if (newMessage.value !== '') {
-    messages.value.push(new Message("User", newMessage.value));
+    messages.value.push(new Message(Sender.USER, newMessage.value));
     // send to backend
     newMessage.value = '';
   }
