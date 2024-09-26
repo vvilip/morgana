@@ -5,7 +5,8 @@
     </form>
     <ul>
       <li v-for="message in messages">
-        <p>{{ message.text }}</p>
+        <p class="morgana-message" v-if="message.msgsender === Sender.MORGANA">{{ message.text }}</p>
+        <p class="user-message" v-else>{{ message.text }}</p>
       </li>
     </ul>
   </div>
@@ -23,8 +24,8 @@ enum Sender {
   MORGANA
 }
 
-function Message(Sender, text) {
-  this.Sender = Sender;
+function Message(msgsender, text) {
+  this.msgsender = msgsender;
   this.text = text;
 }
 
