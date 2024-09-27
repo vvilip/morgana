@@ -1,7 +1,9 @@
 <template>
   <main>
     <SideBar ref="SideBar"></SideBar>
+    <div class="placeholder"></div>
     <Chat></Chat>
+    <div class="placeholder"></div>
   </main>
 </template>
 
@@ -21,5 +23,9 @@ main {
   height: 100vh;
   display: flex;
   font-family: Verdana, sans-serif;
+}
+
+.placeholder {
+  width: 20%;
 }
 </style>

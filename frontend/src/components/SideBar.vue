@@ -1,5 +1,5 @@
 <template>
-  <div id="container">
+  <div id="sidebar-container">
     <h1>Morgana</h1>
     <button id="add-button" @click="addRoom">+</button>
     <ul id="chat-list">
@@ -47,7 +47,7 @@ function addRoom(name) {
   color: white;
 }
 
-#container {
+#sidebar-container {
   background-color: #821131;
   width: 15%;
   text-align: center;

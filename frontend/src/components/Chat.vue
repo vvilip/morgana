@@ -1,14 +1,14 @@
 <template>
   <div id="chat-container">
-    <form @submit.prevent="sendMessage">
-      <input v-model="newMessage" type="text">
-    </form>
     <ul>
       <li v-for="message in messages">
         <p class="morgana-message" v-if="message.msgsender === Sender.MORGANA">{{ message.text }}</p>
         <p class="user-message" v-else>{{ message.text }}</p>
       </li>
     </ul>
+    <form @submit.prevent="sendMessage">
+      <input v-model="newMessage" type="text">
+    </form>
   </div>
 </template>
 
@@ -50,18 +50,20 @@ getMessages();
 
 <style>
 #chat-container {
-  width: 40%;
+  width: 45%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
 }
 
 input {
-  width: 40%;
-  position: fixed;
-  bottom: 20px;
+  width: 100%;
   padding: 10px;
-  border-style: solid;
   border-radius: 30px;
   color: black;
+  border-style: solid;
+  box-sizing: border-box;
 }
 
 p {
@@ -70,5 +72,21 @@ p {
   border-radius: 20px;
   border-width: thin;
   width: 65%;
+}
+
+.user-message {
+  margin-left: auto;
+}
+
+.morgana-message {
+  margin-right: 0;
+}
+
+ul {
+  padding: 0;
+}
+
+form {
+  margin-top: auto;
 }
 </style>
